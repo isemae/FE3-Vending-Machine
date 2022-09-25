@@ -1,0 +1,395 @@
+/* hide */
+
+.visually-hidden{
+  /* Remove the item from normal flow */
+  position: absolute;
+  /* Workaround for falsely pronounced, smushed text */
+  white-space: nowrap;
+  /* Set it to the smallest possible size (some screen readers ignore elements with zero height and width) */
+  width: 1px;
+  height: 1px;
+  /* Hide overflowing content after resizing */
+  overflow: hidden;
+  /* Reset any property that may change the elements size */
+  border: 0;
+  padding: 0;
+  /* Clipping defines what part of an element should be displayed. */
+  /* Deprecated clip property for older browsers */
+  clip: rect(0 0 0 0);
+  /* clip-path for newer browsers. inset(50%) defines an inset rectangle that makes the content disappear. */
+  clip-path: inset(50%); 
+  /* It seems like at the moment nobody is quite sure why margin: -1px is there. On top of that it seems to cause issues (see: https://github.com/h5bp/html5-boilerplate/issues/1985). */
+  margin: -1px;
+}
+
+/* reset */
+body, h1, h2, h3, figure, ul, li, button, input {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: none;
+  border: none;
+  font-size: 100%;
+  font: inherit;
+  vertical-align:baseline
+}
+
+/* 이미지 선택 안되게 */
+button {
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+/* input number 화살표 제거 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* 레이아웃 */
+:root {
+  background-color: #EAE8FE;
+}
+
+main {
+  display: flex;  
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.vender-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap:0 28px
+}
+
+div.product, .current-balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.item-img {
+  margin-right: 10px;
+}
+.item-name {
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 10px;
+  margin: 5px 0;
+}
+
+/* 헤더 */
+header {
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+header .colacola-main-logo {
+  width: 386px;
+}
+
+/* 물품구매패널 */
+.item-purchase-panel {
+  position: relative;
+  width: 360px;
+  height: auto;
+  max-width: 386px;
+  max-height: 548px;
+  box-sizing: border-box;
+  background-color: #ffffff; 
+}
+
+ul.item-menu {
+  background-color: #ffffff;
+  max-height: 270px;
+  margin: 25px 12px 6px 0;
+  padding: 4px 8px 4px 28px;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  overflow-y: auto; 
+}
+
+.item-menu li.beverage-item {
+  display: flex;
+  justify-content: center;
+  position:relative;
+  z-index: 3;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 30%;
+  height: 130px;
+  border-radius: 10px;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+}
+
+.item-menu li:nth-child(n+3)~li {
+  margin-top: 12px;
+}
+
+.item-menu li.beverage-item:hover {
+  border: 3px solid #6327FE;
+}
+
+.item-menu li.soldout::before {
+  position: absolute;
+  content:'';
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index: 1;
+  border-radius: 10px;
+  background:no-repeat center/60px 46px url(./mediaquery/Sold-out.png) rgba(0, 0, 0, 0.7);  
+}
+
+.item-menu li.soldout {
+  pointer-events: none;
+}
+
+.item-menu li.beverage-item button {
+  display: block;
+  width:100%;
+  height:100%;
+  cursor: pointer;
+}
+
+.item-menu li.beverage-item .item-price {
+  color: #ffffff;
+  background: #6327FE;
+  padding: 3px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  width: 70px;
+  white-space: nowrap;
+  height: 22px;
+  margin-top: 7px;
+}
+
+.item-menu li.beverage-item img {
+  margin: 0 auto;
+  width: 35px;
+}
+
+/* 구매관리 패널 */
+.perchase-management-panel {
+  justify-content: space-between;
+  padding: 10px 28px 28px 28px;
+}
+
+.inputmoney-remain {
+  background-color: #EAE8FE;
+}
+
+.inputmoney-mangement, .money-input, .selected-bev-management {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+} 
+
+.inputmoney-remain, .inputmoney-input, ul.current-selected-bev-list {
+  width:65%;
+  padding:6px 10px;
+  box-sizing: border-box;
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+}
+
+.inputmoney-remain, .inputmoney-input {
+  border: 1px solid #BDBDBD;;
+}
+
+.perchase-management-panel button {
+  width: 30%;
+  align-items: center;
+  font-size: 13px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* 선택된 음료 관리 */
+.selected-bev-management {
+  margin-top: 12px;
+}
+
+.selected-bev-management .current-bev-acquire {
+  width: 30%;
+  background-color: #6327FE;
+  color: #EAE8FE;
+  font-weight: 700;
+}
+
+.current-selected-bev-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #EAE8FE;  
+  width: 65%;
+  height: 106px;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-y: auto;
+  padding:14px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.current-selected-bev-list li .selected-bev-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 170px;
+  padding: 8px;
+  background-color: #ffffff;
+}
+
+.current-selected-bev-list li+li  {
+  margin-top: 10px;
+}
+
+.current-selected-bev-list li img {
+  width:18px;
+  height:33px;
+}
+
+/* 획득정보 패널 */
+.inventory-income-panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  align-items: center;
+  justify-content: center;
+}
+
+.inventory-income-panel .balance-status {
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 360px;
+  margin-bottom: 20px;
+}
+
+.inventory-income-panel .current-balance {
+  width: 306px;
+  height: 32px;
+  padding: 0 10px;
+  margin: 9px 27px;
+  background-color: #EAE8FE;
+  border-radius: 5px;
+}
+
+.inventory-income-panel .current-balance .current-balance-value {
+  justify-content: space-between;
+  float: right;
+}
+
+.inventory-income-panel .acquired-item {
+  width: 360px;
+  padding: 28px 27px 25px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* 획득한 음료 */
+.acquired-item h3 {
+  align-items: center;
+  text-align: center;
+  margin-top: 0 0 14px 0;
+  margin-bottom: 14px;
+  font-size:14px;
+  font-weight: 700;
+}
+
+.final-acquired-list {
+  background-color: #EAE8FE;
+  width: 306px;
+  height: 364px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  overflow-y: auto;
+  border-radius: 5px;
+  padding: 8px 0;
+  box-sizing: border-box;
+}
+
+.final-acquired-list li.final-acquired-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  width: 265px;
+  min-height: 46px;
+  padding: 0 8px;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+.final-acquired-list li.final-acquired-item+li  {
+  margin-top: 10px;
+}
+
+.final-acquired-list li.final-acquired-item img {
+  width:18px;
+  height:33px; 
+}
+
+.acquired-item .bill {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 12px;
+}
+
+/* 기타 공통속성 */
+
+  /* 스크롤바 속성 */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #dfdfdf;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.item-price::after, .acquired-item .bill span::after, .current-balance-value::after {
+  content:'원';
+}
+
+/* 획득수량 속성 */
+.amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px; 
+  float: right;
+  flex-basis: 30px;
+  height: 30px; 
+}

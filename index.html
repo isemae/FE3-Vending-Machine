@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vending Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 class="app-title visually-hidden">Cola Cola</h1>
+    <img class="colacola-main-logo" src="Logo_img.png" alt="">
+  </header>
+    <main>
+      <div class="vender-wrapper">
+        <div class="item-purchase-panel">
+          <ul class="item-menu">
+            <li class="beverage-item">
+              <!-- 음료 버튼입니다, hover나 click 시 테두리 색이나 배경색 변화 등 효과가 있었으면 좋겠습니다. 잔액이 모자라면 눌러도 아무 일이 없습니다  -->
+              <button>
+                <img src="./mediaquery/original_Cola.png" alt="">
+                <h2 class="item-name">Original_Cola</h2>
+                <span class="item-price">1000</span>
+              </button>       
+            </li>
+            <li class="beverage-item soldout">
+              <button>
+                <img src="./mediaquery/orange_Cola.png" alt="">
+                <h2 class="item-name">orange_Cola</h2>
+                <span class="item-price">1000</span>
+              </button>       
+            </li>      
+            </li>
+            <li class="beverage-item">
+              <button>
+                <img src="./mediaquery/cool_Cola.png" alt="">
+                <h2 class="item-name">Cool_Cola</h2>
+                <span class="item-price">1000</span>
+              </button>       
+            </li>
+            <li class="beverage-item">
+              <button>
+                <img src="./mediaquery/violet_Cola.png" alt="">
+                <h2 class="item-name">Violet_Cola</h2>
+                <span class="item-price">1000</span>
+              </button>       
+            </li>
+            <li class="beverage-item">
+              <button>
+                <img src="./mediaquery/green_Cola.png" alt="">
+                <h2 class="item-name">Green_Cola</h2>
+                <span class="item-price">1000</span>
+              </button>       
+            </li>
+            <li class="beverage-item">
+              <button>
+                <img src="./mediaquery/yellow_Cola.png" alt="">
+                <h2 class="item-name">Yellow_Cola</h2>
+                <span class="item-price">1000</span>
+              </button>       
+            </li>
+            <li class="beverage-item">
+              <button>
+                <img src="./mediaquery/java_Cola.png" alt="">
+                <h2 class="item-name">JAVA_Tea</h2>
+                <span class="item-price">10000</span>
+              </button>       
+            </li>
+            <li class="beverage-item">
+              <button>
+                <img src="./mediaquery/Drphp_Cola.png" alt="">
+                <h2 class="item-name">Drphp_Cola</h2>
+                <span class="item-price">100</span>
+              </button>
+            </li>
+            <li class="beverage-item">
+              <button>
+                <img src="./mediaquery/solid_js.png" alt="">
+                <h2 class="item-name">Solid_Cola</h2>
+                <span class="item-price">1000</span>
+              </button>       
+            </li>
+          </ul>
+          
+          <div class="perchase-management-panel">
+            <div class="inputmoney-mangement">
+              <div class="inputmoney-remain"> 잔액:</div>
+              <button class="inputmoney-change">거스름돈 반환</button> 
+            </div> 
+            
+            <div class="money-input">
+              <input class="inputmoney-input" type="number" placeholder="입금액 입력">
+              <button>입금</button>
+            </div>
+
+            <div class="selected-bev-management">
+              <ul class="current-selected-bev-list">
+                <li>
+                  <button type="button" class="selected-bev-item">
+                    <div>
+                      <div class="product">
+                        <img src="./mediaquery/JAVA_Cola.png" alt="" class="item-img">
+                        <span class="item-name">Java_Tea</span>
+                      </div>
+                    </div>
+                    <span class="amount">2</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="selected-bev-item">
+                    <div>
+                      <div class="product">
+                        <img src="./mediaquery/drphp_Cola.png" alt="" class="item-img">
+                        <span class="item-name">Drphp_Cola</span>
+                      </div>
+                    </div>
+                    <span class="amount">3</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="selected-bev-item">
+                    <div>
+                      <div class="product">
+                        <img src="./mediaquery/Solid_js.png" alt="" class="item-img">
+                        <span class="item-name">Solid_Cola</span>
+                      </div>
+                    </div>
+                    <span class="amount">1</span>
+                  </button>
+                </li>
+              </ul>
+              <button class="current-bev-acquire">획득</button>
+            </div>
+              <!-- 획득한 음료 목록입니다. 총 금액은 음료를 뽑은 뒤 획득하지 않으면 계산된 음료가격에 포함되지 않습니다??? -->
+          </div> 
+        </div>
+        <div class="inventory-income-panel"> 
+          <div class="balance-status">
+            <div class="current-balance">
+              소지금 :
+              <span class="current-balance-value">25000</span>
+            </div> <!-- 현재 가진 금액입니다 -->
+          </div>
+          <section class="acquired-item">
+            <h3>획득한 음료</h3>
+            <ul class="final-acquired-list">
+              <li class="final-acquired-item">
+                <div class="product">
+                  <img src="./mediaquery/original_Cola.png" alt="" class="item-img">
+                  <span class="item-name">Original_Cola</span>
+                </div>
+                <span class="amount">3</span>
+              </li>
+              <li class="final-acquired-item">
+                <div class="product">
+                  <img src="./mediaquery/drphp_Cola.png" alt="" class="item-img">
+                  <span class="item-name">Drphp_Cola</span>
+                </div>
+                <span class="amount">3</span>
+              </li>
+              <li class="final-acquired-item">
+                <div class="product">
+                  <img src="./mediaquery/JAVA_Cola.png" alt="" class="item-img">
+                  <span class="item-name">Java_Tea</span>
+                </div>
+                <span class="amount">3</span>
+              </li>
+              <li class="final-acquired-item">
+                <div class="product">
+                  <img src="./mediaquery/solid_js.png" alt="" class="item-img">
+                  <span class="item-name">Solid_Cola</span>
+                </div>
+                <span class="amount">3000</span>
+              </li>
+              <li class="final-acquired-item">
+                <div class="product">
+                  <img src="./mediaquery/solid_js.png" alt="" class="item-img">
+                  <span class="item-name">Solid_Cola</span>
+                </div>
+                <span class="amount">3000</span>
+              </li>
+              <li class="final-acquired-item">
+                <div class="product">
+                  <img src="./mediaquery/solid_js.png" alt="" class="item-img">
+                  <span class="item-name">Solid_Cola</span>
+                </div>
+                <span class="amount">3000</span>
+              </li>
+              <li class="final-acquired-item">
+                <div class="product">
+                  <img src="./mediaquery/solid_js.png" alt="" class="item-img">
+                  <span class="item-name">Solid_Cola</span>
+                </div>
+                <span class="amount">3000</span>
+              </li>
+              <li class="final-acquired-item">
+                <div class="product">
+                  <img src="./mediaquery/solid_js.png" alt="" class="item-img">
+                  <span class="item-name">Solid_Cola</span>
+                </div>
+                <span class="amount">3000</span>
+              </li>
+              <li class="final-acquired-item">
+                <div class="product">
+                  <img src="./mediaquery/solid_js.png" alt="" class="item-img">
+                  <span class="item-name">Solid_Cola</span>
+                </div>
+                <span class="amount">3000</span>
+              </li>
+        
+            </ul>
+            <div class="bill">총 금액:  
+              <span>9000</span>
+            </div>
+          </section>
+        </div>
+      </div>  
+    </main>
+</body>
+</html>
+
+<!-- 음료가 다 소진된 경우 매진라벨이 표시되며 해당 음료는 뽑을 수 없습니다. -->
