@@ -71,7 +71,7 @@ main {
   gap:0 28px
 }
 
-div.product, .current-balance {
+span.product, .current-balance {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,8 +84,7 @@ div.product, .current-balance {
 .item-name {
   font-size: 10px;
   font-weight: bold;
-  line-height: 10px;
-  margin: 5px 0;
+  margin: 5px 5px;
 }
 
 /* 헤더 */
@@ -125,8 +124,6 @@ ul.item-menu {
 .item-menu li.beverage-item {
   display: flex;
   justify-content: center;
-  position:relative;
-  z-index: 3;
   box-sizing: border-box;
   background-color: #ffffff;
   width: 30%;
@@ -141,7 +138,7 @@ ul.item-menu {
 }
 
 .item-menu li.beverage-item:hover {
-  border: 3px solid #6327FE;
+  outline: 3px solid #6327FE;
 }
 
 .item-menu li.soldout::before {
@@ -180,7 +177,7 @@ ul.item-menu {
 }
 
 .item-menu li.beverage-item img {
-  margin: 0 auto;
+  margin: 0 10px;
   width: 35px;
 }
 
